@@ -68,7 +68,8 @@ class PostController extends Controller
         $data = DB::table('posts')
                 ->leftjoin('categories','posts.category_id','=','categories.id')
                 ->select('categories.name')
-                ->where('posts.id','=','$post.id');
+                ->where('posts.id','=',$post->id)
+                ->first();
         return view('posts.show',compact('post','data'));
     }
 
