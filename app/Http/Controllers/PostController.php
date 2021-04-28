@@ -65,8 +65,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $data = $post->load('category');
-        return view('posts.show',compact('data'));
+        $data = DB::table('posts')
+                ->leftjoin('categories','posts.category_id','=','categories.id')
+                ->select('categories.name')
+                ->where('posts.id','=','$post.id');
+        return view('posts.show',compact('post','data'));
     }
 
     /**
