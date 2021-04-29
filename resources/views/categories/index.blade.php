@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="row" style="margin-top: 5rem;">
+    <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+            <div class="float-left">
                 <h2>Category List</h2>
             </div>
-            <div class="pull-right">
+            <div class="float-right">
                 <a class="btn btn-success" href="{{ route('categories.create') }}">Create New Category</a>
             </div>
         </div>
@@ -40,5 +40,5 @@
         </tr>
         @endforeach
     </table>
-    {!! $data->links() !!}
+    {{ $data->links() }}
 @endsection
